@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 讓 Canvas 置中 */
+}
+canvas {
+  width: 80% !important;
+  height: auto !important;
+  margin-bottom: 20px; /* 增加間距 */
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 8px;
+  text-align: center;
+}
