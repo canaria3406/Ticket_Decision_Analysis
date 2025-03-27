@@ -4,18 +4,25 @@ body {
   align-items: center; /* 讓 Canvas 置中 */
 }
 canvas {
-  width: 80% !important;
+  width: 100% !important;
   height: auto !important;
   margin-bottom: 20px; /* 增加間距 */
 }
+div {
+  width: 80% !important;
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 table {
-  width: 100%;
+  width: 100% !important;
   border-collapse: collapse;
+  margin-bottom: 20px;
 }
 table, th, td {
   border: 1px solid black;
 }
 th, td {
-  padding: 8px;
   text-align: center;
 }
