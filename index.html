@@ -11,30 +11,36 @@
 
     <h1>Ticket Decision Analysis</h1>
 
-    TODO: 可以自行輸入數字
+    <p>
+    分析 CD 疊盤的最佳購買策略。<br>
+    使用者可以透過調整以下參數，來觀察不同購買張數的效益。<br>
+    填寫說明：<a href="https://github.com/canaria3406/ticket_estimater/blob/main/README.md">點我</a>・
+    資料來源：<a href="https://github.com/BennyNTHU/Ticket/blob/main/Tickets.pdf">BennyNTHU</a>．
+    網頁製作及維護：<a href="https://github.com/canaria3406">canaria3406</a>
+    </p>
 
     <div>
     <table>
       <tbody>
         <tr>
           <td style='width: 40%;'>CD 累計総合売上：</td>
-          <td style='width: 60%;'><input style='width: 50%;' type="number" id="M" min="100" value="303835" disabled></td>
+          <td style='width: 60%;'><input style='width: 50%;' type="number" id="M" min="100" value="303835"></td>
         </tr>
         <tr>
           <td>Live 会場座席数：</td>
-          <td><input style='width: 50%;' type="number" id="K" min="100" value="40000" disabled></td>
+          <td><input style='width: 50%;' type="number" id="K" min="100" value="40000"></td>
         </tr>
         <tr>
           <td>每張 CD 價格：</td>
-          <td><input style='width: 50%;' type="number" id="c" min="500" value="1650" disabled></td>
+          <td><input style='width: 50%;' type="number" id="c" min="500" value="1650"></td>
         </tr>
         <tr>
           <td>Live 票價成本：</td>
-          <td><input style='width: 50%;' type="number" id="d" min="1000" value="13935" disabled></td>
+          <td><input style='width: 50%;' type="number" id="d" min="1000" value="13935"></td>
         </tr>
         <tr>
           <td>最大 CD 購買張數：</td>
-          <td><input style='width: 50%;' type="number" id="cd_max" min="20" max="120" value="100" disabled></td>
+          <td><input style='width: 50%;' type="number" id="cd_max" min="20" max="120" value="100"></td>
         </tr>
       </tbody>
     </table>
@@ -50,6 +56,7 @@
   </body>
   <footer>
     Credits: <a href="https://github.com/BennyNTHU/Ticket">https://github.com/BennyNTHU/Ticket</a><br>
+    Source: <a href="https://github.com/canaria3406/ticket_estimater">https://github.com/canaria3406/ticket_estimater</a>
   </footer>
   <script src="src/main.js"></script>
 </html>
