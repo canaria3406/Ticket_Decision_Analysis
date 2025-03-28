@@ -10,12 +10,16 @@ let nc01 = 0;
 let nc02 = 0;
 
 function updateData() {
-  // 獲取輸入值
-  let M = parseInt(document.getElementById("M").value);
-  let K = parseInt(document.getElementById("K").value);
-  let c = parseInt(document.getElementById("c").value);
-  let d = parseInt(document.getElementById("d").value);
-  let cd_max = parseInt(document.getElementById("cd_max").value);
+  // 確保 M 大於 434
+  let M = parseInt(document.getElementById("M").value) > 434 ? parseInt(document.getElementById("M").value) : 434;
+  // 確保 M 大於 K ，否則 K = M * 0.8
+  let K = M > parseInt(document.getElementById("K").value) ? parseInt(document.getElementById("K").value) : Math.floor(M * 0.8);
+  // 確保 c 大於 100
+  let c = parseInt(document.getElementById("c").value) > 100 ? parseInt(document.getElementById("c").value) : 100;
+  // 確保 d 大於 1000
+  let d = parseInt(document.getElementById("d").value) > 1000 ? parseInt(document.getElementById("d").value) : 1000;
+  // 確保 cd_max 大於 20
+  let cd_max = parseInt(document.getElementById("cd_max").value) > 20 ? parseInt(document.getElementById("cd_max").value) : 20;
 
   const gamma_list = [2, 2.2, 2.4, 2.6, 2.8, 3];
 
