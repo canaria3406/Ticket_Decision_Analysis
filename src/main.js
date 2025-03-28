@@ -5,6 +5,10 @@ document.querySelectorAll("input").forEach(input => {
 let probabilityChartInstance = null;
 let utilityChartInstance = null;
 
+let bc01 = 0;
+let nc01 = 0;
+let nc02 = 0;
+
 function updateData() {
   // 獲取輸入值
   let M = parseInt(document.getElementById("M").value);
@@ -51,7 +55,7 @@ function updateData() {
 
   // 計算 U_dev 值 
   function best_response(n_sym, N_est, K) {
-    const ns = Array.from({ length: 100 }, (_, i) => i + 1);
+    const ns = Array.from({ length: cd_max }, (_, i) => i + 1);
     const U_dev_vals = ns.map(n => p_dev(n, n_sym, N_est, K) / (c * n + d));
     return ns[U_dev_vals.indexOf(Math.max(...U_dev_vals))];
   }
@@ -135,6 +139,8 @@ function updateData() {
     return [gamma.toString(), Math.round(N_est).toString(), n_opt.toString()];
   });
 
+  bc01 = array_gamma2[0][2];
+
   generateTable(["γ值", "估計參與者數 N", "最佳 n_i*"], array_gamma2, "tableContainer2");
 
   // 計算 參與者數 與 納許均衡下的最佳策略
@@ -145,13 +151,16 @@ function updateData() {
     const E_n = sumWeightedN / sumWeights;
     const N_est = M / E_n;
     let n_sym = best_response(cd_range[0], N_est, K);
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < cd_max; i++) {
       const new_n = best_response(n_sym, N_est, K);
       if (new_n === n_sym) break;
       n_sym = new_n;
     }
     return [gamma.toString(), Math.round(N_est).toString(), n_sym.toString()];
   });
+
+  nc01 = array_nash[0][2];
+  nc02 = array_nash[gamma_list.length - 1][2];
 
   generateTable(["γ值", "估計參與者數 N", "納許均衡 n_i*"], array_nash, "tableContainer3");
 
@@ -190,6 +199,20 @@ function updateData() {
       true
     );
   }
+
+  function logToSpan(bc01, nc01, nc02) {
+    let logContainer = document.getElementById("logOutput");
+    if (!logContainer) {
+      return;
+    }
+    logContainer.innerText = `考慮投資成本與中獎機率，個體最佳的投資策略為 ${bc01} 張 CD；
+    在個體最佳投資策略下的疊盤成本為 ${bc01 * c} 日圓；
+    然而，市場競爭導致粉絲提高購買數量，在納許均衡下的投資策略則為 ${nc01} ~ ${nc02} 張 CD；
+    在納許均衡下投資策略的疊盤成本為 ${nc01 * c} ~ ${nc02 * c} 日圓。`; 
+  }
+
+  logToSpan(bc01, nc01, nc02);
+
 }
 
 updateData();

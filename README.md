@@ -39,9 +39,9 @@
 
 ## 結果判讀
 
-待補
+請參考 [原文](https://github.com/BennyNTHU/Ticket/blob/main/Tickets.pdf) 說明。
 
 ## Credits
 
-[https://www.chartjs.org/](https://www.chartjs.org/)  
 [https://github.com/BennyNTHU/Ticket](https://github.com/BennyNTHU/Ticket)  
+[https://www.chartjs.org/](https://www.chartjs.org/)  
