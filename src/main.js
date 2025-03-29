@@ -209,10 +209,8 @@ function updateData() {
     if (!logContainer) {
       return;
     }
-    logContainer.innerText = `考慮投資成本與中獎機率，個體最佳的投資策略為 ${bc01} 張 CD；
-    在個體最佳投資策略下的疊盤成本為 ${bc01 * c} 日圓；
-    然而，市場競爭導致粉絲提高購買數量，在納許均衡下的投資策略則為 ${nc01} ~ ${nc02} 張 CD；
-    在納許均衡下投資策略的疊盤成本為 ${nc01 * c} ~ ${nc02 * c} 日圓。`; 
+    logContainer.innerText = `考慮投資成本與中獎機率，個體最佳的疊盤策略為 ${bc01} 張 CD，疊盤成本為 ${bc01 * c} 日圓；
+    然而由於座位的數量有限，競爭導致粉絲提高疊盤數量，在納許均衡下的疊盤策略則為 ${nc01} ~ ${nc02} 張 CD，疊盤成本為 ${nc01 * c} ~ ${nc02 * c} 日圓。`; 
   }
 
   logToSpan(bc01, nc01, nc02);
